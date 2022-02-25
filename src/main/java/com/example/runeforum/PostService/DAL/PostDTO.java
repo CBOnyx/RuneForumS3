@@ -2,7 +2,6 @@ package com.example.runeforum.PostService.DAL;
 
 import com.example.runeforum.PostService.Logic.PostModel;
 import com.example.runeforum.ReactionService.DAL.ReactionDTO;
-import com.example.runeforum.ReactionService.Logic.ReactionModel;
 import com.example.runeforum.ReactionService.ReactionListConverter;
 import lombok.Getter;
 import lombok.Setter;
