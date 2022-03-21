@@ -6,11 +6,12 @@ import com.example.runeforum.ReactionService.ReactionListConverter;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.List;
 
 @Getter @Setter
-public class PostDTO
+public class PostDTO implements Serializable
 {
     private int ID;
     private String Title;
