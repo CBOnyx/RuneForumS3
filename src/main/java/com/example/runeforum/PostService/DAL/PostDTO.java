@@ -13,7 +13,7 @@ import java.util.List;
 @Getter @Setter
 public class PostDTO implements Serializable
 {
-    private int ID;
+    private long ID;
     private String Title;
     private String Text;
     private ZonedDateTime Date;
@@ -29,5 +29,16 @@ public class PostDTO implements Serializable
         Text = postModel.getText();
         Date = postModel.getDate();
         Reactions = reactionListConverter.ReactionModelToReactionDTO(postModel.getReactions());
+    }
+
+    public PostDTO(PostEntity postEntity)
+    {
+        ReactionListConverter reactionListConverter = new ReactionListConverter();
+
+        this.ID = postEntity.getID();
+        Title = postEntity.getTitle();
+        Text = postEntity.getText();
+        Date = postEntity.getDate();
+        Reactions = reactionListConverter.ReactionModelToReactionDTO(postEntity.getComments());
     }
 }

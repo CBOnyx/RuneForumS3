@@ -2,6 +2,7 @@ package com.example.runeforum.PostService.Logic;
 
 import com.example.runeforum.PostService.API.PostViewModel;
 import com.example.runeforum.PostService.DAL.PostDTO;
+import com.example.runeforum.PostService.DAL.PostEntity;
 import com.example.runeforum.ReactionService.Logic.ReactionModel;
 import com.example.runeforum.ReactionService.ReactionListConverter;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.util.List;
 @Getter @Setter
 public class PostModel
 {
-    private int ID;
+    private long ID;
     private String Title;
     private String Text;
     private ZonedDateTime Date;
@@ -27,7 +28,7 @@ public class PostModel
         Title = postDTO.getTitle();
         Text = postDTO.getText();
         Date = postDTO.getDate();
-        Reactions = reactionListConverter.ReactionDTOToReactionModel(postDTO.getReactions());
+        Reactions = reactionListConverter.ReactionDTOToReactionDTO(postDTO.getReactions());
     }
 
     public PostModel(PostViewModel postViewModel)

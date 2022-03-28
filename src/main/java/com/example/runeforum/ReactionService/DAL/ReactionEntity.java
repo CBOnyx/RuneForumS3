@@ -1,6 +1,7 @@
 package com.example.runeforum.ReactionService.DAL;
 
 import com.example.runeforum.PostService.DAL.PostEntity;
+import com.example.runeforum.ReactionService.Logic.ReactionModel;
 import com.example.runeforum.UserService.DAL.UserEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,4 +28,11 @@ public class ReactionEntity
     @ManyToOne
     private UserEntity userEntity;
 
+    public ReactionEntity(){}
+    public ReactionEntity(ReactionDTO reactionDTO)
+    {
+        this.ID = reactionDTO.getID();
+        Text = reactionDTO.getText();
+        Date = reactionDTO.getDate();
+    }
 }

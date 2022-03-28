@@ -2,6 +2,7 @@ package com.example.runeforum.ReactionService;
 
 import com.example.runeforum.ReactionService.API.ReactionViewModel;
 import com.example.runeforum.ReactionService.DAL.ReactionDTO;
+import com.example.runeforum.ReactionService.DAL.ReactionEntity;
 import com.example.runeforum.ReactionService.Logic.ReactionModel;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,6 +18,22 @@ public class ReactionListConverter
         List<ReactionDTO> reactionDTOS = new ArrayList<>();
         reactionModels.forEach(reactionModel -> reactionDTOS.add(new ReactionDTO(reactionModel)));
         return reactionDTOS;
+    }
+
+    @NotNull
+    public List<ReactionDTO> ReactionEntityToReactionDTO(List<ReactionEntity> reactionEntities)
+    {
+        List<ReactionDTO> reactionDTOS = new ArrayList<>();
+        reactionEntities.forEach(reactionEntity -> reactionDTOS.add(new ReactionDTO(reactionEntity)));
+        return reactionDTOS;
+    }
+
+    @NotNull
+    public List<ReactionEntity> ReactionDTOToReactionEntity(List<ReactionDTO> reactionDTOS)
+    {
+        List<ReactionEntity> reactionEntities = new ArrayList<>();
+        reactionDTOS.forEach(reactionDTO -> reactionEntities.add(new ReactionEntity(reactionDTO)));
+        return reactionEntities;
     }
 
     @NotNull

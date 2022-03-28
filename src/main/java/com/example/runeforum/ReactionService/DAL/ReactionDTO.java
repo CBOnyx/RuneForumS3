@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 @Getter @Setter
 public class ReactionDTO
 {
-   private int ID;
+   private long ID;
    private String Text;
    private ZonedDateTime Date;
 
