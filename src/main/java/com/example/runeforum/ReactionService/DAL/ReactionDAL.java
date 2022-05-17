@@ -1,5 +1,6 @@
 package com.example.runeforum.ReactionService.DAL;
 
+import com.example.runeforum.ReactionService.Interfaces.IReaction;
 import com.example.runeforum.ReactionService.ReactionListConverter;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class ReactionDAL
+public class ReactionDAL implements IReaction
 {
     static EntityManagerFactory factory = Persistence.createEntityManagerFactory("playcatan-back-end");
     EntityTransaction transaction;

@@ -1,6 +1,7 @@
 package com.example.runeforum.PostService.DAL;
 
 import com.example.runeforum.ReactionService.DAL.ReactionEntity;
+import com.example.runeforum.ReactionService.ReactionListConverter;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,5 +27,17 @@ public class PostEntity implements Serializable
     private ZonedDateTime Date;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ReactionEntity> comments;
+    private List<ReactionEntity> Comments;
+
+    public PostEntity() {}
+    public PostEntity(PostDTO postDTO)
+    {
+        ReactionListConverter converter = new ReactionListConverter();
+
+        this.ID = postDTO.getID();
+        Title = postDTO.getTitle();
+        Text = postDTO.getText();
+        Date = postDTO.getDate();
+        Comments = converter.ReactionDTOToReactionEntity(postDTO.getReactions());
+    }
 }

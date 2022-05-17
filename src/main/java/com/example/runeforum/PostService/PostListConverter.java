@@ -2,9 +2,11 @@ package com.example.runeforum.PostService;
 
 import com.example.runeforum.PostService.API.PostViewModel;
 import com.example.runeforum.PostService.DAL.PostDTO;
+import com.example.runeforum.PostService.DAL.PostEntity;
 import com.example.runeforum.PostService.Logic.PostModel;
 import com.example.runeforum.ReactionService.API.ReactionViewModel;
 import com.example.runeforum.ReactionService.DAL.ReactionDTO;
+import com.example.runeforum.ReactionService.DAL.ReactionEntity;
 import com.example.runeforum.ReactionService.Logic.ReactionModel;
 import org.jetbrains.annotations.NotNull;
 
@@ -38,10 +40,26 @@ public class PostListConverter
     }
 
     @NotNull
-    public List<PostViewModel> ReactionModelToReactionViewModel(List<PostModel> postModels)
+    public List<PostViewModel> PostModelToPostViewModel(List<PostModel> postModels)
     {
         List<PostViewModel> postViewModels = new ArrayList<>();
         postModels.forEach(postModel -> postViewModels.add(new PostViewModel(postModel)));
         return postViewModels;
+    }
+
+    @NotNull
+    public List<PostDTO> PostEntityToPostDTO(List<PostEntity> postEntities)
+    {
+        List<PostDTO> postDTOS = new ArrayList<>();
+        postEntities.forEach(postEntity -> postDTOS.add(new PostDTO(postEntity)));
+        return postDTOS;
+    }
+
+    @NotNull
+    public List<ReactionEntity> PostDTOToPostEntity(List<PostDTO> reactionDTOS)
+    {
+        List<ReactionEntity> reactionEntities = new ArrayList<>();
+        reactionDTOS.forEach(postDTO -> reactionEntities.add(new ReactionEntity(postDTO)));
+        return reactionEntities;
     }
 }
